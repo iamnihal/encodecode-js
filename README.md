@@ -11,6 +11,6 @@ It contains the following utilities:-
 - HTML Entities Encoding/Decoding
 - Generate and Decrypt MD5 hashes.
 - Generate SHA-1, SHA-256, SHA-512.
-- JSON Prettifier
+- JSON Prettifier and CSP Evaluator
 ```
-## Demo: [Live](https://encodeappjs.herokuapp.com)
+## Demo: [Live](https://encodetools.herokuapp.com)
