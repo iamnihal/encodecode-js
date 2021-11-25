@@ -22,6 +22,8 @@ const sha512Encode = document.getElementById('input_sha512generate');
 const sha512OutputEncode = document.getElementById('output_sha512generate');
 const plainJSON = document.getElementById('input_json');
 const prettyJSON = document.getElementById('output_json');
+const cspEvaluator = document.getElementById('input_csp');
+const cspOutput = document.getElementById('output_csp');
 
 
 urlEncode.addEventListener('input', function (e) {
@@ -105,4 +107,28 @@ plainJSON.addEventListener('input', function (e) {
     var obj = JSON.parse(e.target.value);
     var prettifyJSON = JSON.stringify(obj, undefined, 4);
     prettyJSON.innerHTML = prettifyJSON;
+});
+
+
+cspEvaluator.addEventListener('input', function(e) {
+   var value = e.target.value;
+    fetch("https://dry-peak-03442.herokuapp.com/https://csp-evaluator.withgoogle.com/getCSP", {
+  "headers": {
+    "accept": "*/*",
+    "accept-language": "en-IN,en;q=0.9",
+    "cache-control": "no-cache",
+    "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+    "pragma": "no-cache",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "sec-gpc": "1"
+  },
+  "referrer": "https://csp-evaluator.withgoogle.com/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "url="+value,
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "omit"
+}).then(r=>r.text()).then(function(r){cspOutput.innerHTML = r});
 });
