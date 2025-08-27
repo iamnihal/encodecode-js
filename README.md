@@ -13,4 +13,4 @@ It contains the following utilities:-
 - Generate SHA-1, SHA-256, SHA-512.
 - JSON Prettifier and CSP Evaluator
 ```
-## Demo: [Live](https://encoder.nihalchoudhary.in/)
+## Demo: [Live](https://nihalchoudhary.in/encodecode-js/)
